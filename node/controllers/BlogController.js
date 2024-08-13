@@ -50,6 +50,8 @@ export const updateBlog = async (req, res) => {
 export const deleteBlog = async (req, res) => {
   try {
     const blog = await BlogModel.findByPk(req.params.id);
+    console.log("Se Ejecuto :)");
+    
     if (blog) {
       await blog.destroy();
       res.json({ message: "Blog deleted" });

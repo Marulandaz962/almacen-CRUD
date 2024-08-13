@@ -11,7 +11,7 @@ router.post('/', createBlog)
 
 router.put('/:id', updateBlog)
 
-router.put('/:id', deleteBlog)
+router.delete('/:id', deleteBlog)
 
 
 export default router
