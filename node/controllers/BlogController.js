@@ -1,5 +1,5 @@
 import BlogModel from "../models/BlogModel.js";
-
+import { Sequelize } from "sequelize";
 // Metodos del crud
 
 // Get all blogs
@@ -63,10 +63,18 @@ export const deleteBlog = async (req, res) => {
   }
 };
 
-export const create100 = async (req, res) => {
+// Get category counts
+export const getCategoryCounts = async (req, res) => {
   try {
-    
+    const counts = await BlogModel.findAll({
+      attributes: [
+        'category',
+        [Sequelize.fn('COUNT', Sequelize.col('category')), 'count']
+      ],
+      group: 'category'
+    });
+    res.json(counts);
   } catch (error) {
-    
+    res.json({ message: error.message });
   }
-}
+};

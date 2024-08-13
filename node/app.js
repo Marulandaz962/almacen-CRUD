@@ -12,16 +12,13 @@ app.use('/blogs', blogRoutes)
 
 try {
     await db.authenticate()
-    console.log('Conesion esitosa con db :)');
+    console.log('Conexion with DB');
     
 } catch (err) {
-    console.log(`DB conntection error :c ${err}`);
+    console.log(`DB conntection error${err}`);
     
 }
 
-// app.get('/', (req, res) => {
-//     res.send('Holi')
-// })
 
 app.listen(8000, () => {
     console.log('Server runnign in http://localhost:8000');

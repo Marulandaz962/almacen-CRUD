@@ -32,7 +32,7 @@ const EditBlog = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`${URI}${id}`, { name, category, reference: Number(reference), status });
+            await axios.put(`${URI}${id}`, { name, category, reference, status });
             navigate('/');
         } catch (error) {
             console.error("Error updating blog:", error);
@@ -56,14 +56,17 @@ const EditBlog = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="category" className="form-label">Category</label>
-                    <input
-                        type="text"
+                    <select
                         id="category"
                         className="form-control"
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                         required
-                    />
+                    >
+                        <option value="">Select a category</option>
+                        <option value="Tecnología">Tecnología</option>
+                        <option value="Electrodomésticos">Electrodomésticos</option>
+                    </select>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="reference" className="form-label">Reference</label>

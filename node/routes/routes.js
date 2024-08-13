@@ -1,5 +1,5 @@
 import express from 'express'
-import { createBlog, deleteBlog, getAllBlogs, getBlogById, updateBlog } from '../controllers/BlogController.js'
+import { createBlog, deleteBlog, getAllBlogs, getBlogById, updateBlog,getCategoryCounts } from '../controllers/BlogController.js'
 
 const router = express.Router()
 
@@ -13,5 +13,6 @@ router.put('/:id', updateBlog)
 
 router.delete('/:id', deleteBlog)
 
+router.get('/counts/category', getCategoryCounts);
 
 export default router

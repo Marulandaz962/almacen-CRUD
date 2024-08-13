@@ -6,15 +6,15 @@ const URI = 'http://localhost:8000/blogs/';
 
 const CreateBlog = () => {
     const [name, setName] = useState('');
-    const [category, setCategory] = useState('');
-    const [reference, setReference] = useState(''); // Inicializa como cadena vacía
+    const [category, setCategory] = useState(''); // Inicializa como cadena vacía
+    const [reference, setReference] = useState('');
     const [status, setStatus] = useState(false); // Inicializa como booleano
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(URI, { name, category, reference: Number(reference), status });
+            await axios.post(URI, { name, category, reference, status });
             // Redirigir a la página de blogs después de la creación
             navigate('/');
         } catch (error) {
@@ -39,14 +39,17 @@ const CreateBlog = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="category" className="form-label">Category</label>
-                    <input
-                        type="text"
+                    <select
                         id="category"
                         className="form-control"
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                         required
-                    />
+                    >
+                        <option value="">Select a category</option>
+                        <option value="Tecnología">Tecnología</option>
+                        <option value="Electrodomésticos">Electrodomésticos</option>
+                    </select>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="reference" className="form-label">Reference</label>

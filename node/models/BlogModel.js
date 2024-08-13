@@ -9,12 +9,16 @@ import { DataTypes } from 'sequelize';
 
 
 
-const BlogModel = db.define( 'blogs', {
-    name: {type: DataTypes.STRING},
-    category: {type: DataTypes.STRING},
-    reference: {type: DataTypes.INTEGER},
-    status: {type: DataTypes.BOOLEAN},
-    
-})
+const BlogModel = db.define('blogs', {
+    name: { type: DataTypes.STRING },
+    reference: { type: DataTypes.STRING },
+    category: {
+        type: DataTypes.ENUM,
+        values: ['Tecnologia', 'Electrodomesticos'],
+        allowNull: false,
+    },
+    status: { type: DataTypes.BOOLEAN },
+});
 
 export default BlogModel;
+
