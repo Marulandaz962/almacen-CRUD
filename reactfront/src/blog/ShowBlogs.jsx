@@ -50,10 +50,11 @@ const ShowBlogs = () => {
     return (
         <div className="container-fluid">
             <Link to='/create'>
-                <button className='btn btn-primary'>Create Blog</button>
+                <button className='btn btn-primary'>Crear Producto</button>
             </Link>
             <div className="row mt-3">
                 <div className="col-12">
+                <h3>Inventario de productos</h3>
                     <table className='table table-bordered' style={{ width: '100%', minWidth: '900px' }}>
                         <thead className="table-primary">
                             <tr>
@@ -85,7 +86,7 @@ const ShowBlogs = () => {
                             }
                         </tbody>
                     </table>
-                    <h3>Category Counts</h3>
+                    <h3>Contador de categoria</h3>
                     <table className='table table-bordered' style={{ width: '100%', minWidth: '900px' }}>
                         <thead className="table-primary">
                             <tr>
