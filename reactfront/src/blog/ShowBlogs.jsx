@@ -20,7 +20,7 @@ const ShowBlogs = () => {
     const getBlogs = async () => {
         try {
             const res = await axios.get(URI);
-            console.log(res.data); 
+            console.log(res.data); // Verifica lo que devuelve la API
             setBlog(res.data);
         } catch (error) {
             console.error("Error fetching blogs:", error);
@@ -31,7 +31,7 @@ const ShowBlogs = () => {
     const getCategoryCounts = async () => {
         try {
             const res = await axios.get(CATEGORY_COUNTS_URI);
-            console.log("Category Counts:", res.data); 
+            console.log("Category Counts:", res.data); // Verifica lo que devuelve la API
             setCategoryCounts(res.data);
         } catch (error) {
             console.error("Error fetching category counts:", error);
@@ -41,7 +41,7 @@ const ShowBlogs = () => {
     const deleteBlog = async (id) => {
         try {
             await axios.delete(`${URI}${id}`);
-            getBlogs(); 
+            getBlogs(); // Actualiza la lista de blogs después de eliminar
         } catch (error) {
             console.error("Error deleting blog:", error);
         }
